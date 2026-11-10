@@ -1,17 +1,24 @@
 #include <iostream>
 using namespace std;
-int linearserch(int arr[], int n, int key) {
+void printarr(int arr, int n){
     for(int i = 0; i < n; i++){
-        if(arr[i] == key) {
-            return i;
-        }
+        cout << arr[i] << " ";
     }
-    return -1;
+    cout << endl;
+
 }
 int main () {
-    int arr[] = {2, 4, 6, 8, 10, 12, 14, 16};
+    int arr[] = {5, 4, 3, 9, 2};
     int n = sizeof(arr) / sizeof(int);
-    int key = 10;
-    cout << linearserch(arr, n, key) << "\n";
+    int copyarr[n];
+    for(int i = 0; i < n; i++){
+        int j = n-i-1;
+        copyarr[i] = arr[j];
+
+    }
+    for(int i = 0; i < n; i++){
+        arr[i] = copyarr[i];
+    }
+    printarr(arr, n);
     return 0;
 }
